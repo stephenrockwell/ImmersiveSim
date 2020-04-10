@@ -24,6 +24,7 @@ public class InventorySlot : MonoBehaviour
 
     void Update()
     {
+
         //sets position of image
         if(isBeingDragged == true)
         {
@@ -71,10 +72,10 @@ public class InventorySlot : MonoBehaviour
         Item selectedSlot = manager.dragSelected.gameObject.GetComponent<InventorySlot>().slot;
 
         //checks if the the area the item was dropped is empty
-        if (manager.dragSelected != null)
+        if (manager.dragSelected.gameObject.layer == 11)
         {
             //checks if sprite is empty
-            if(manager.dragSelected.sprite = emptySprite)
+            if(manager.dragSelected.sprite = null)
             {
                 //Moves Item
                 manager.dragSelected.gameObject.GetComponent<InventorySlot>().slot = slot;

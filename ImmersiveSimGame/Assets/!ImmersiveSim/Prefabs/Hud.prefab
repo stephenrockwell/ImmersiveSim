@@ -741,8 +741,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616c70605f193c14695b1297ba1707a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryObject: {fileID: 1977472744365780519}
+  mouseLook: {fileID: 0}
+  selectedBackground: {fileID: 0}
   selected: {fileID: 0}
   dragSelected: {fileID: 0}
+  inventoryHolders: []
+  inventory: []
+  armor: []
+  hotbar: []
+  weaponHolder: {fileID: 0}
+  itemsInInventory: []
 --- !u!1 &1977472743983809873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,7 +1576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13787296, y: 0.16585438}
   m_AnchorMax: {x: 0.86200005, y: 0.9214666}
-  m_AnchoredPosition: {x: -0.00012207031, y: -1.0502396}
+  m_AnchoredPosition: {x: -0.00012207031, y: -1.0502319}
   m_SizeDelta: {x: 0.80010986, y: 1.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1977472744533651666

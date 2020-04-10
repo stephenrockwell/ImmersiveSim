@@ -9,7 +9,7 @@ public class ItemSelector : MonoBehaviour
     public Transform weaponHolder;
     public Image selectedSquare;
     public GameObject slotParent;
-    public InventorySlot[] slots;
+    public InventoryManager manager;
     public Vector3[] slotPositions;
 
     public int selectedIndex = 0;
@@ -17,7 +17,7 @@ public class ItemSelector : MonoBehaviour
     void Start()
     {
         int slotNum = 0;
-        foreach (InventorySlot slot in slots)
+        foreach (InventorySlot slot in manager.hotbar)
         {
             slotPositions[slotNum] = slot.transform.position;
             slotNum++;
@@ -27,11 +27,15 @@ public class ItemSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ScrollWheelSelect();
+        HandleActiveItems();
+    }
+    public void ScrollWheelSelect()
+    {
         selectedSquare.transform.position = slotPositions[selectedIndex];
-
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            if(selectedIndex < 7)
+            if (selectedIndex < 7)
             {
                 selectedIndex++;
             }
@@ -49,6 +53,23 @@ public class ItemSelector : MonoBehaviour
             else
             {
                 selectedIndex = 7;
+            }
+        }
+    }
+    public void HandleActiveItems()
+    {
+        for (int i = 0; i < slotPositions.Length; i++)
+        {
+            if(manager.hotbar[i].slot != null)
+            {
+                if (i != selectedIndex)
+                {
+                    manager.hotbar[i].slot.prefab.SetActive(false);
+                }
+                else
+                {
+                    manager.hotbar[i].slot.prefab.SetActive(true);
+                }
             }
         }
     }

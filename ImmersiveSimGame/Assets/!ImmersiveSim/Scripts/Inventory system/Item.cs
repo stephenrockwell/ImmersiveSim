@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     public string description;
 
     public Sprite artwork;
+    public GameObject prefab;
 
     public int availbleAmmo;
     public int clipSize;
